@@ -13,4 +13,4 @@ class Employee {
         this.birthday = originalBirthday.match(birthdayRegex)[0];
         this.picture = json.picture;
     }
-}   
+}

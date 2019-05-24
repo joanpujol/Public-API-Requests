@@ -15,7 +15,9 @@ fetch(fetchURL)
   .then((data) => {
     data.results.map((employeeJson => employees.push(new Employee(employeeJson))));
     employees.forEach((employee => gallery.innerHTML += createGalleryCard(employee)));
-    addClickListenersToGalleryCards()
+
+    const cards = document.querySelectorAll(".card");
+    addClickListenersToGalleryCards(cards)
   })
 
 function createGalleryCard(employee) {
@@ -31,8 +33,7 @@ function createGalleryCard(employee) {
           </div>`;
 }
 
-function addClickListenersToGalleryCards() {
-  const cards = document.querySelectorAll(".card");
+function addClickListenersToGalleryCards(cards) {
   cards.forEach((card) => {
     card.addEventListener("click", (event) => {
       let target = event.target;
@@ -40,14 +41,17 @@ function addClickListenersToGalleryCards() {
         target = target.parentNode;
       }
       let employee = employees.find(employee => employee.id == target.id.slice(1));
-      body.insertAdjacentHTML( 'beforeend', createGalleryModal(employee) );
-      addGalleryModalBehaviour(employee);
+      createGalleryModal(employee);
     })
   });
 }
 
 function createGalleryModal(employee) {
-  console.log("caca")
+  body.insertAdjacentHTML('beforeend', getGalleryModalHTML(employee));
+  addGalleryModalBehaviour(employee);
+}
+
+function getGalleryModalHTML(employee) {
   return `<div class="modal-container">
             <div class="modal">
               <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
@@ -79,16 +83,26 @@ function addGalleryModalBehaviour(employee) {
   const employeeIndex = employees.indexOf(employee);
 
   const modalPrevButton = document.querySelector("#modal-prev");
-  modalPrevButton.addEventListener("click", () => {
-    modalContainer.parentNode.removeChild(modalContainer);
-    body.insertAdjacentHTML( 'beforeend', createGalleryModal(employees[employeeIndex - 1]) );
-    addGalleryModalBehaviour(employees[employeeIndex - 1]);
-  });
+  if(employeeIndex == 0) {
+    modalPrevButton.parentNode.removeChild(modalPrevButton);
+  } else {
+    modalPrevButton.addEventListener("click", () => {
+      modalContainer.parentNode.removeChild(modalContainer);
+
+      const prevEmployeeIndex = employeeIndex - 1;
+      createGalleryModal(employees[prevEmployeeIndex]);
+    });
+  }
 
   const modalNextButton = document.querySelector("#modal-next");
-  modalNextButton.addEventListener("click", () => {
-    modalContainer.parentNode.removeChild(modalContainer);
-    body.insertAdjacentHTML( 'beforeend', createGalleryModal(employees[employeeIndex + 1]) );
-    addGalleryModalBehaviour(employees[employeeIndex + 1]);
-  });
+  if(employeeIndex == employees.length -1) {
+    modalPrevButton.parentNode.removeChild(modalNextButton);
+  } else {
+    modalNextButton.addEventListener("click", () => {
+      modalContainer.parentNode.removeChild(modalContainer);
+
+      const nextEmployeeIndex = employeeIndex + 1;
+      createGalleryModal(employees[nextEmployeeIndex]);
+    });
+  }
 }
