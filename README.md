@@ -1,6 +1,6 @@
 # Public-API-Requests
 
-![alt text](https://lh3.googleusercontent.com/sXWx16g4v-WTo5sKF2Dp8ZJJ0h21t1l2Bn4PCk8WlChft8v3H9-ajXrCnDgOkZdfNXQwesGol1LEmLODXuii=w2560-h1297-rw)
+![alt text](https://doc-0o-1g-docs.googleusercontent.com/docs/securesc/9ndn1886fq72vr8673mj9hlo34t0km3t/61gesorgobbcq9lm56cg6iaobkskbjk2/1558778400000/09065346815347908773/09065346815347908773/1SdnrRIme8h2vXxrED-1_tnL3HeW684iT?e=view&nonce=jmeohk6fesrsq&user=09065346815347908773&hash=p06v3ec02dgi2kmkcs6ep9sjnuf4fvse)
 
 For this project I use the Random User Generator API (https://randomuser.me/) to grab information for 12 random “employees”, and use that data to build a prototype for a fictional Startup employee directory.
 
