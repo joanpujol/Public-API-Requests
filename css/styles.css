@@ -16,7 +16,7 @@ html, body {
 body {
     font-family: "Nunito", sans-serif;
     text-align: center;
-    background: rgba(235, 235, 235, 0.9);
+    background: #8AAAe5;
 }
 
 header {
@@ -30,8 +30,9 @@ header {
 
 header h1 {
     font-size: 1.25em;
-    color: rgba(50, 50, 50, 0.9);
+    color: #ffffff;
     margin-top: 35px;
+    font-weight: bold;
 }
 
 .search-input {
@@ -109,7 +110,7 @@ header h1 {
 }
 
 .card-text {
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: rgba(50, 50, 50, 0.7);
     margin: 7px auto;
     transition: .4s ease-out;
@@ -152,7 +153,7 @@ header h1 {
     right: 15px;
     cursor: pointer;
     color: rgba(255, 255, 255, 0.9);
-    background: rgba(0, 0, 0, 0.8);
+    background: #8aaae5;
     outline: none;
     border-radius: 0.25em;
     border: 1px solid rgba(50, 50, 50, 0.3);
@@ -201,7 +202,7 @@ header h1 {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.9);
     padding: 0.75em 1.5em;
-    background: rgba(0, 0, 0, 0.8);
+    background: #8aaae5;
     border-radius: 0.35em;
     transition: .4s ease-out;
     outline: none;
@@ -257,7 +258,7 @@ header h1 {
     }
 
     .btn:hover {
-        background: rgba(255, 255, 255, 1);
-        color: rgba(25, 25, 25, 1); 
+        background: #080a52;
+        color: #ffffff; 
     }
 }
